@@ -1,0 +1,9 @@
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+    datasource:
+        url: jdbc:postgresql://spring-employee-jpa.cmu0lpmtaixv.us-west-1.rds.amazonaws.com:5432/spring-employee-jpa
+        username: 
+        password: 
