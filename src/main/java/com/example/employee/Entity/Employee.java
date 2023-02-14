@@ -3,6 +3,7 @@ package com.example.employee.Entity;
 // import java.sql.Timestamp;
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,22 +13,31 @@ import jakarta.persistence.SequenceGenerator;
 @Entity
 public class Employee {
 
+    // @SequenceGenerator(
+    //     name = "employee_sequence",
+    //     sequenceName = "employee_sequence",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "employee_sequence"
+    // )
+    
     @Id
-    @SequenceGenerator(
-        name = "employee_sequence",
-        sequenceName = "employee_sequence",
-        allocationSize = 1
-    )
-    @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "employee_sequence"
-    )
+    @Column(name="empid",unique=true)
     private String EmpID;
+    
 	
+    @Column(name="empname")
 	private String EmpName;
+
+    @Column(name="empemail")
 	private String EmpEmail;
 
+    @Column(name="doj")
 	private LocalDate joiningDate;
+
+    public Employee() {}
 
     public Employee(String empID, String empName, String empEmail, LocalDate localDate) {
         EmpID = empID;
@@ -67,5 +77,13 @@ public class Employee {
     public void setJoiningDate(LocalDate joiningDate) {
         this.joiningDate = joiningDate;
     }   
+
+    // @Override
+    public String toString()
+    {
+        return EmpEmail + " " + EmpName + " " + EmpID + " " + joiningDate;
+        
+    }
+
     
 }
