@@ -18,4 +18,11 @@ public class EmployeeService {
     public List<Employee> getEmployee() {
 		return emprepo.findAll();
 	}
+
+    public void addNewEmployee(Employee emp) {
+      // System.out.println("ddddddddddddddddddddddd");
+
+      System.out.println(emp);
+      emprepo.save(emp); 
+    }
 }
