@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Employee {
@@ -25,16 +26,20 @@ public class Employee {
     
     @Id
     @Column(name="empid",unique=true)
+    @NotNull
     private String EmpID;
     
 	
     @Column(name="empname")
+    @NotNull
 	private String EmpName;
 
     @Column(name="empemail")
+    @NotNull
 	private String EmpEmail;
 
     @Column(name="doj")
+    @NotNull
 	private LocalDate joiningDate;
 
     public Employee() {}
